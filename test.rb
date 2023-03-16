@@ -13,7 +13,7 @@
 def script1(word)
    
     if word[word.length-2] == "C" && word[word.length-1] == "S" 
-        return 2^word.size
+        return 2 ** word.size
     else
         word.reverse
     end
