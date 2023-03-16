@@ -10,7 +10,7 @@ class EngineeringCalculator < SimpleCalculator
         if(!(num.is_a? (Numeric)) || !(power.is_a? (Numeric)))
             puts "Error at EngineeringCalculator.powerOf() - the parameter is not a Number".chomp
         else
-        return num^power
+        return num ** power
         end
     end
 
