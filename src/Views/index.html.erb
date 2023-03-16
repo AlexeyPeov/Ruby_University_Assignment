@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
+</head>
+<body>
+  <h1>Current Date and Time</h1>
+  <p><%= (Time.now).strftime('%Y-%m-%d %H:%M') %></p>
+
+  <h1>Abobus Bank</h1>
+
+  <% if @message.nil? %>
+  <p>Welcome!</p>
+  <% else %>
+  <p><%= @message %></p>
+  <% end %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Balance</th>
+    </tr>
+    </thead>
+
+    <% if @user %>
+
+      <%= "<tr>" %>
+
+      <% @user.each do |key, value| %>
+
+        <%= "<td>" + value.to_s + "</td>" %>
+
+      <% end %>
+
+      <%= "</tr>" %>
+
+    <% end %>
+
+  </table>
+
+  <form action="/update" method="POST">
+    <input type="hidden" name="id" value="<%= @id %>" />
+    <label for="balance">Number:</label>
+    <input type="number" name="balance" id="balance" required />
+    <br />
+    <input type="submit" name="action" value="Deposit" />
+    <input type="submit" name="action" value="Withdraw" />
+  </form>
+</body>
+</html>
