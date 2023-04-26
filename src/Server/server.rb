@@ -7,7 +7,7 @@ require 'stringio'
 class Server
   def initialize(app)
     @app = app
-    @server = TCPServer.new('0.0.0.0', 3000)
+    @server = TCPServer.new('127.0.0.1', 3000)
   end
 
   def start
